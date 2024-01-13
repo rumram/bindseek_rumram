@@ -1,8 +1,8 @@
 import argparse
 import subprocess
-import pandas as pd
-from binding_search import run_binding_site_analysis  # Assuming you've refactored Module 2 into this function
-from mfe_calculate import run_rnahybrid_analysis   # Assuming you've refactored Module 3 into this function
+from binding_search import run_binding_site_analysis
+from binding_search import reverse_complement
+from mfe_calculate import run_rnahybrid_analysis
 
 
 def run_module1(genes_file, species_file, output_file):
@@ -20,29 +20,20 @@ def main():
     args = parser.parse_args()
 
     # File paths
-    output_file_module1 = "utr_sequence.txt"
-    output_file_module2 = "binding_sites.tsv"
-    merged_output_file = "merged_output.tsv"
+    output_file_module1 = "output_data.txt"
+    output_file_module2 = "binding_sites.xlsx"
+    output_file_module3 = "final_output.tsv"
 
     # Run Module 1 (Perl script)
     run_module1(args.genes_file, args.species_file, output_file_module1)
 
     # Run Module 2 (Python for binding site analysis)
-    run_binding_site_analysis(output_file_module1, args.motif, output_file_module2)
+    run_binding_site_analysis(output_file_module1, reverse_complement(args.motif), output_file_module2)
 
     # Run Module 3 (Python for RNAhybrid analysis)
     run_rnahybrid_analysis(output_file_module2, args.rnahybrid_param, args.mirna_sequence)
 
-    # Read the outputs of Module 2 and Module 3
-    module2_data = pd.read_csv(output_file_module2, sep='\t')
-    module3_data = pd.read_csv('mfe_output.tsv', sep='\t')  # The file name is hardcoded in Module 3
-
-    # Merge the dataframes side by side
-    merged_data = pd.concat([module2_data, module3_data['MFE']], axis=1)
-
-    # Save the merged data to a TSV file
-    merged_data.to_csv(merged_output_file, sep='\t', index=False)
-    print(f"Workflow completed. Results are in: {merged_output_file}")
+    print(f"Workflow completed. Final results are in: {output_file_module3}")
 
 
 if __name__ == "__main__":
