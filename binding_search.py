@@ -1,3 +1,4 @@
+import argparse
 import re
 import pandas as pd
 import math
@@ -22,7 +23,7 @@ def run_binding_site_analysis(input_file, motif, output_file):
 
     list_of_lists = [flat[i:i + 8] for i in range(0, len(flat), 8)]
     df = pd.DataFrame(list_of_lists, columns=['Gene', 'Binding', '22-nt binding sequence', 'Start', 'End', 'Length', 'Prob.', 'GC content'])
-    df.to_excel(output_file, index=False)
+    df.to_csv(output_file, sep="\t", index=False)
 
 
 def gc_content(seq):
@@ -72,8 +73,8 @@ def check_motif_conditions(motif, sequence, i, name):
 
     if motif_type:
         motif_length = end_pos - start_pos + 1  # Adjusted to include the character at end_pos
-        return [name, motif_type, seq_segment, start_pos, end_pos, len(sequence), prob(sequence, motif_length).pvalue,
-                gc_cont]
+        return [name, motif_type, seq_segment, start_pos, end_pos, len(sequence), round(prob(sequence, motif_length).pvalue, 5),
+                round(gc_cont*100, 3)]
     else:
         return None
 
@@ -86,3 +87,4 @@ def searchin(motif, sequence, name):
         if result:
             found.append(result)
     return found
+
