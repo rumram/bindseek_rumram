@@ -4,7 +4,9 @@
 Bindseeker has been tested on Python 3.7 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
 ## Citation
 Using bindseek workflow please cite:
- Myszczynski, Kaczmarek
+```
+ Myszczynski, Szuszkiewicz, Krawczynski, Sikora, Romaniewicz,  Guzewska, Zabielski, Kaczmarek The complexity of the miR-26a-5p- and miR-125b-5p-induced response of the uterine epithelium associated with early pregnancy events (in press)
+```
 
 As well as RNAhybrid:
 ```
@@ -34,4 +36,35 @@ ACTR1A
 ACTR3
 AHCY
 ```
-An example of gene list provided in data dircetory ("gene_names_short.txt").
+An example of gene list provided in data directory ("gene_names_short.txt").
+
+### species list
+The species list should contain one species name per line:
+
+```
+sus_scrofa
+sus_scrofa_largewhite
+sus_scrofa_berkshire
+sus_scrofa_hampshire
+```
+The order of the given species names is important due to the fact that if the gene sequence for the first species is not found, the program will start looking for the gene in species lower on the list.
+An example of gene list provided in data directory ("sus_names.txt").
+
+### miRNA seed sequence
+
+The seed sequence should be provided as 8-characters long combination of four letters (A, C, G, U). 
+
+### source of target sequences
+ 	
+Used for a quick estimate of extreme value distribution parameters. You can choose between nothing, 3utr_fly, 3utr_worm and 3utr_human for better equitation within these species.
+
+
+### mature miRNA sequence
+
+The sequence should be provided as 22-characters long combination of four letters (A, C, G, U). 
+
+## Usage example
+
+```
+python workflow.py --genes_file gene_names_short.txt --species_file sus_names.txt --motif UUCAAGUA --rnahybrid_param 3utr_human --mirna_sequence UUCAAGUAAUCCAGGAUAGGCU
+```
