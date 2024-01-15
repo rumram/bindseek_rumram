@@ -1,9 +1,9 @@
 import argparse
 import subprocess
 import pandas as pd
-from binding_search import run_binding_site_analysis
+from src.binding_search import run_binding_site_analysis
 from mfe_calculate import run_rnahybrid_analysis
-from binding_search import reverse_complement
+from src.binding_search import reverse_complement
 
 
 def run_module1(genes_file, species_file, output_file):
