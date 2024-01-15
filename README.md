@@ -2,16 +2,7 @@
 
 ## System requirements
 Bindseeker has been tested on Python 3.7 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
-## Citation
-Using bindseek workflow please cite:
-```
- Myszczynski, Szuszkiewicz, Krawczynski, Sikora, Romaniewicz,  Guzewska, Zabielski, Kaczmarek The complexity of the miR-26a-5p- and miR-125b-5p-induced response of the uterine epithelium associated with early pregnancy events (in press)
-```
 
-As well as RNAhybrid:
-```
-Rehmsmeier, Marc and Steffen, Peter and Hoechsmann, Matthias and Giegerich, Robert Fast and effective prediction of microRNA/target duplexes RNA, RNA, 2004
-```
 ## Input files
 
 Five inputs are required to run the workflow: 
@@ -67,4 +58,15 @@ The sequence should be provided as 22-characters long combination of four letter
 
 ```
 python workflow.py --genes_file gene_names_short.txt --species_file sus_names.txt --motif UUCAAGUA --rnahybrid_param 3utr_human --mirna_sequence UUCAAGUAAUCCAGGAUAGGCU
+```
+
+## Citation
+Using bindseek workflow please cite:
+```
+ Myszczynski, Szuszkiewicz, Krawczynski, Sikora, Romaniewicz,  Guzewska, Zabielski, Kaczmarek The complexity of the miR-26a-5p- and miR-125b-5p-induced response of the uterine epithelium associated with early pregnancy events (in press)
+```
+
+As well as RNAhybrid:
+```
+Rehmsmeier, Marc and Steffen, Peter and Hoechsmann, Matthias and Giegerich, Robert Fast and effective prediction of microRNA/target duplexes RNA, RNA, 2004
 ```
