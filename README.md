@@ -57,7 +57,7 @@ The sequence should be provided as 22-characters long combination of four letter
 ## Usage example
 
 ```
-python workflow.py --genes_file gene_names_short.txt --species_file sus_names.txt --motif UUCAAGUA --rnahybrid_param 3utr_human --mirna_sequence UUCAAGUAAUCCAGGAUAGGCU
+python bindseek.py --genes_file gene_names_short.txt --species_file sus_names.txt --motif UUCAAGUA --rnahybrid_param 3utr_human --mirna_sequence UUCAAGUAAUCCAGGAUAGGCU
 ```
 
 ## Citation
