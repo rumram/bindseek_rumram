@@ -12,7 +12,7 @@ WORKDIR /usr/src/app
 COPY dep/python_requirements.txt /dep/python_requirements.txt
 
 # Install Python packages from python_requirements.txt
-RUN pip install --no-cache-dir -r dep/python_requirements.txt
+RUN pip install --no-cache-dir -r /dep/python_requirements.txt
 
 # Install Perl
 RUN apt-get install -y perl && \
