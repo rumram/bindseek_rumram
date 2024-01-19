@@ -9,7 +9,7 @@ RUN apt-get update && \
 WORKDIR /usr/src/app
 
 # Copy the requirements file into the container at /usr/src/app
-COPY dep/python_requirements.txt dep/python_requirements.txt
+COPY dep/python_requirements.txt /dep/python_requirements.txt
 
 # Install Python packages from python_requirements.txt
 RUN pip install --no-cache-dir -r dep/python_requirements.txt
@@ -25,7 +25,7 @@ RUN apt-get install -y gcc
 
 # Copy the tar.gz file into the container at /usr/src/app
 # Replace 'path/to/your/file.tar.gz' with the actual path to your tar.gz file
-COPY dep/RNAhybrid-2.1.2.tar.gz dep/RNAhybrid-2.1.2.tar.gz
+COPY dep/RNAhybrid-2.1.2.tar.gz /dep/RNAhybrid-2.1.2.tar.gz
 
 # Change directory to /temp (create if it doesn't exist)
 WORKDIR dep
@@ -46,13 +46,13 @@ ENV PATH="/usr/src/pyscripts:${PATH}"
 
 # Copy the pyscripts directory into the container
 # Replace 'path/to/your/pyscripts' with the actual path to your pyscripts directory
-COPY src/pyscripts /src/pyscripts
+COPY src /src
 
-COPY test_data/gene_names_short.txt test_data/gene_names_short.txt
-COPY test_data/sus_names.txt test_data/sus_names.txt
+COPY test_data/gene_names_short.txt /test_data/gene_names_short.txt
+COPY test_data/sus_names.txt /test_data/sus_names.txt
 
 # Ensembl and Perl
-WORKDIR dep/perl_dep
+WORKDIR /dep/perl_dep
 
 RUN mkdir src && cd src
 RUN apt install -y git && git clone -b release-1-6-924 --depth 1 https://github.com/bioperl/bioperl-live.git
