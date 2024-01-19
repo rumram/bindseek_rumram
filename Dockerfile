@@ -9,10 +9,10 @@ RUN apt-get update && \
 WORKDIR /usr/src/app
 
 # Copy the requirements file into the container at /usr/src/app
-COPY dep/python_requirements.txt .
+COPY dep/python_requirements.txt dep/python_requirements.txt
 
 # Install Python packages from python_requirements.txt
-RUN pip install --no-cache-dir -r python_requirements.txt
+RUN pip install --no-cache-dir -r dep/python_requirements.txt
 
 # Install Perl
 RUN apt-get install -y perl && \
@@ -25,10 +25,10 @@ RUN apt-get install -y gcc
 
 # Copy the tar.gz file into the container at /usr/src/app
 # Replace 'path/to/your/file.tar.gz' with the actual path to your tar.gz file
-COPY dep/RNAhybrid-2.1.2.tar.gz .
+COPY dep/RNAhybrid-2.1.2.tar.gz dep/RNAhybrid-2.1.2.tar.gz
 
 # Change directory to /temp (create if it doesn't exist)
-WORKDIR dep/RNAhybrid
+WORKDIR dep
 
 # Extract the tar.gz file to /temp and compile/install it
 RUN tar -xzvf RNAhybrid-2.1.2.tar.gz --strip-components=1 && \
