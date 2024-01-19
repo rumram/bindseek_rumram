@@ -46,14 +46,13 @@ ENV PATH="/usr/src/pyscripts:${PATH}"
 
 # Copy the pyscripts directory into the container
 # Replace 'path/to/your/pyscripts' with the actual path to your pyscripts directory
-COPY local/pyscripts /usr/src/pyscripts
+COPY src/pyscripts /src/pyscripts
 
-WORKDIR /results
-COPY gene_names_short.txt .
-COPY sus_names.txt .
+COPY test_data/gene_names_short.txt test_data/gene_names_short.txt
+COPY test_data/sus_names.txt test_data/sus_names.txt
 
 # Ensembl and Perl
-WORKDIR /usr/src
+WORKDIR dep/perl_dep
 
 RUN mkdir src && cd src
 RUN apt install -y git && git clone -b release-1-6-924 --depth 1 https://github.com/bioperl/bioperl-live.git
@@ -65,10 +64,12 @@ RUN git clone https://github.com/Ensembl/ensembl-git-tools.git && \
 # Set environment variables
 #ENV PERL5LIB ${PERL5LIB}:/usr/src/bioperl-1.6.924:/usr/src/ensembl/modules:/usr/src/ensembl-compara/modules:/usr/src/ensembl-variation/modules:/usr/src/ensembl-funcgen/modules
 # Set additional paths for executables
-ENV PATH /usr/src/bioperl-1.6.924:/usr/src/ensembl/modules:/usr/src/ensembl-compara/modules:/usr/src/ensembl-variation/modules:/usr/src/ensembl-funcgen/modules:$PATH
+ENV PATH /dep/perl_dep/src/bioperl-1.6.924:/dep/perl_dep/ensembl/modules:/dep/perl_dep/ensembl-compara/modules:/dep/perl_dep/ensembl-variation/modules:/dep/perl_dep/ensembl-funcgen/modules:$PATH
 
 # Set additional paths for Perl modules
-ENV PERL5LIB /usr/src/bioperl-1.6.924:/usr/src/ensembl/modules:/usr/src/ensembl-compara/modules:/usr/src/ensembl-variation/modules:/usr/src/ensembl-funcgen/modules:$PERL5LIB
+ENV PERL5LIB /dep/perl_dep/bioperl-1.6.924:/dep/perl_dep/ensembl/modules:/dep/perl_dep/ensembl-compara/modules:/dep/perl_dep/ensembl-variation/modules:/dep/perl_dep/ensembl-funcgen/modules:$PERL5LIB
+
+WORKDIR /results
 
 # Export the PERL5LIB variable
 #RUN echo 'export PERL5LIB' >> /root/.bashrc
