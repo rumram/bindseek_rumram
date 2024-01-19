@@ -41,7 +41,7 @@ def main():
     # Merge the dataframes side by side
     merged_data = pd.concat([module2_data, module3_data['MFE']], axis=1)
 
-    # Save the merged data to a TSV file
+    # Save the merged test_data to a TSV file
     merged_data.to_csv(merged_output_file, sep='\t', index=False)
     print(f"Workflow completed. Merged results are in: {merged_output_file}")
 

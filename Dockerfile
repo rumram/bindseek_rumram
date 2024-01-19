@@ -9,10 +9,10 @@ RUN apt-get update && \
 WORKDIR /usr/src/app
 
 # Copy the requirements file into the container at /usr/src/app
-COPY requirements.txt .
+COPY dep/python_requirements.txt .
 
-# Install Python packages from requirements.txt
-RUN pip install --no-cache-dir -r requirements.txt
+# Install Python packages from python_requirements.txt
+RUN pip install --no-cache-dir -r python_requirements.txt
 
 # Install Perl
 RUN apt-get install -y perl && \
@@ -23,12 +23,12 @@ RUN apt-get update && apt-get install -y libmysqlclient-dev && cpan App::cpanmin
 RUN cpanm IO::String DBI DBD::mysql
 RUN apt-get install -y gcc
 
-# Change directory to /temp (create if it doesn't exist)
-WORKDIR /RNAhybrid
-
 # Copy the tar.gz file into the container at /usr/src/app
 # Replace 'path/to/your/file.tar.gz' with the actual path to your tar.gz file
-COPY RNAhybrid-2.1.2.tar.gz .
+COPY dep/RNAhybrid-2.1.2.tar.gz .
+
+# Change directory to /temp (create if it doesn't exist)
+WORKDIR dep/RNAhybrid
 
 # Extract the tar.gz file to /temp and compile/install it
 RUN tar -xzvf RNAhybrid-2.1.2.tar.gz --strip-components=1 && \
