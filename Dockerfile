@@ -28,7 +28,7 @@ RUN apt-get install -y gcc
 COPY dep/RNAhybrid-2.1.2.tar.gz /dep/RNAhybrid-2.1.2.tar.gz
 
 # Change directory to /temp (create if it doesn't exist)
-WORKDIR dep
+WORKDIR /dep
 
 # Extract the tar.gz file to /temp and compile/install it
 RUN tar -xzvf RNAhybrid-2.1.2.tar.gz --strip-components=1 && \
