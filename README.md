@@ -28,7 +28,7 @@ ACTR1A
 ACTR3
 AHCY
 ```
-An example of gene list provided in *data* directory ("*gene_names_short.txt*").
+An example of gene list provided in *test_data* directory ("*gene_names_short.txt*").
 
 ### species list
 The species list should contain one species name per line:
@@ -40,7 +40,7 @@ sus_scrofa_berkshire
 sus_scrofa_hampshire
 ```
 The order of the given species names is important due to the fact that if the gene sequence for the first species is not found, the program will start looking for the gene in species lower on the list.
-An example of gene list provided in *data* directory ("*sus_names.txt*").
+An example of gene list provided in *test_data* directory ("*sus_names.txt*").
 
 ### miRNA seed sequence
 
