@@ -79,11 +79,12 @@ The output of the workflow will be stored in given path, like: */path/to/input/d
 
 ## Output
 ```
-Gene	Binding	22-nt binding sequence	Start	End	Length	Prob.	GC content	MFE
-ACLY	6mer	CAGTGTCTCTTTGTGTCAGGGG	584	589	877	0.19178	54.545	-18.5
-ACSL4	6mer-A1	AATTTATCTTTGATAACAGGGA	949	954	2724	0.48516	27.273	-14.8
-ACSL4	6mer-A1	AATATTGTTAAGGGACCAGGGA	2037	2042	2724	0.48516	40.909	-23.1
-ACTN4	6mer-A1	TCTGGGGGGCGGGGGGCAGGGA	135	140	1075	0.22992	81.818	-28.8
+| Gene  | Binding | 22-nt binding sequence | Start | End  | Length | Prob.   | GC content | MFE   |
+|-------|---------|------------------------|-------|------|--------|---------|------------|-------|
+| ACLY  | 6mer    | CAGTGTCTCTTTGTGTCAGGGG | 584   | 589  | 877    | 0.19178 | 54.545     | -18.5 |
+| ACSL4 | 6mer-A1 | AATTTATCTTTGATAACAGGGA | 949   | 954  | 2724   | 0.48516 | 27.273     | -14.8 |
+| ACSL4 | 6mer-A1 | AATATTGTTAAGGGACCAGGGA | 2037  | 2042 | 2724   | 0.48516 | 40.909     | -23.1 |
+| ACTN4 | 6mer-A1 | TCTGGGGGGCGGGGGGCAGGGA | 135   | 140  | 1075   | 0.22992 | 81.818     | -28.8 |
 
 ```
 
