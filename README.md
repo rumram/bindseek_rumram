@@ -1,7 +1,8 @@
 # bindseek
 
 ## System requirements
-Bindseeker has been tested on Python 3.7 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
+Bindseeker has been tested on Python 3.8 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
+All dependencies are included in Dockerfile (Docker installation required).
 
 ## Input files
 
@@ -53,6 +54,28 @@ Used for a quick estimate of extreme value distribution parameters. You can choo
 ### mature miRNA sequence
 
 The sequence should be provided as 22-characters long combination of four letters (A, C, G, U). 
+
+## Install
+
+The workflow is based on docker image.
+First, clone GitHub reposotiry:
+```
+git clone https://github.com/compcore-irzbz/bindseek.git
+```
+
+Change directory to bindseek and run docker image build:
+```
+cd bindseek
+docker build -t bindseek_img .
+```
+
+Run workflow as docker container:
+
+```
+docker run -v "/path/to/input/dir:/results" bindseek_img --genes_file gene_names.txt --species_file species_file.txt --motif UCCCUGAG --rnahybrid_param 3utr_human --mirna_sequence UCCCUGAGACCCUAACUUGUGA
+```
+
+The output of the workflow will be stored in given path, like: */path/to/input/dir*.
 
 ## Usage example
 
