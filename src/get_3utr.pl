@@ -6,6 +6,8 @@ use Bio::EnsEMBL::Registry;
 use Bio::SeqIO;
 use IO::String;
 
+print "Starting the workflow...\n";
+
 # Command-line options
 my $genes_file;
 my $species_file;
@@ -21,23 +23,24 @@ unless ($genes_file && $species_file) {
     die "Usage: perl $0 --species_file species.txt --genes_file genes.txt --output_file output.txt\n";
 }
 
-# Read species from the file
-my @species;
-open my $species_fh, '<', $species_file or die "Cannot open file $species_file: $!";
-while (my $line = <$species_fh>) {
-    chomp $line;
-    push @species, $line;
+# Function to read and filter non-empty lines from a file
+sub read_and_filter_file {
+    my ($filename) = @_;
+    my @lines;
+    open my $fh, '<', $filename or die "Cannot open file $filename: $!";
+    while (my $line = <$fh>) {
+        chomp $line;
+        push @lines, $line if $line ne '';
+    }
+    close $fh;
+    return @lines;
 }
-close $species_fh;
 
-# Read genes from the file
-my @genes;
-open my $genes_fh, '<', $genes_file or die "Cannot open file $genes_file: $!";
-while (my $line = <$genes_fh>) {
-    chomp $line;
-    push @genes, $line;
-}
-close $genes_fh;
+# Read and filter species from the file
+my @species = read_and_filter_file($species_file);
+
+# Read and filter genes from the file
+my @genes = read_and_filter_file($genes_file);
 
 # Connect to Ensembl
 my $registry = 'Bio::EnsEMBL::Registry';
@@ -86,5 +89,5 @@ foreach my $gene_name (@genes) {
     }
 }
 
-close $FH; # Close the file handle
+close $FH;
 
