@@ -1,9 +1,9 @@
-### Add arguments for specifying proper 3utr_human or else, mature miRNA sequence and modular name of inputrfile
+#!/usr/bin/env python3
 
 import subprocess
 
 # Function to run RNAhybrid and process its output
-def run_rnahybrid(sequence, rnahybrid_param, mirna_sequence):
+def run_rnahybrid(sequence, mirna_sequence, rnahybrid_param="3utr_human"):
     try:
         # Run RNAhybrid command with user-provided parameters
         result = subprocess.check_output(
@@ -17,7 +17,7 @@ def run_rnahybrid(sequence, rnahybrid_param, mirna_sequence):
         return None, None
 
 
-def run_rnahybrid_analysis(input_file, rnahybrid_param, mirna_sequence):
+def run_rnahybrid_analysis(input_file, mirna_sequence, rnahybrid_param):
     output_file = 'mfe_output.tsv'
     with open(input_file, 'r') as file, open(output_file, 'w') as outfile:
         next(file)  # Skip the first line if it's a header
@@ -26,7 +26,7 @@ def run_rnahybrid_analysis(input_file, rnahybrid_param, mirna_sequence):
             parts = line.strip().split('\t')
             if len(parts) >= 3:  # Ensure there are at least 3 columns (Gene, Binding, Sequence)
                 name, sequence = parts[0], parts[2]  # Assuming the sequence is in the third column
-                mfe_value, _ = run_rnahybrid(sequence, rnahybrid_param, mirna_sequence)
+                mfe_value, _ = run_rnahybrid(sequence, mirna_sequence, rnahybrid_param)
                 if mfe_value is not None:
                     outfile.write(f"{name}\t{mfe_value}\n")
 
