@@ -79,6 +79,8 @@ The output of the workflow will be stored in given path, like: */path/to/input/d
 
 ## Output
 
+The workflow result is save in the *complete_results.tsv* table.
+
 | Gene | Binding | 22-nt binding sequence | Start | End | Length | Prob. | GC content | MFE |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|
 | ACLY | 6mer | CAGTGTCTCTTTGTGTCAGGGG | 584 | 589 | 877 | 0.19178 | 54.545 | -18.5 |
@@ -86,6 +88,16 @@ The output of the workflow will be stored in given path, like: */path/to/input/d
 | ACSL4 | 6mer-A1 | AATATTGTTAAGGGACCAGGGA | 2037 | 2042 | 2724 | 0.48516 | 40.909 | -23.1 |
 | ACTN4 | 6mer-A1 | TCTGGGGGGCGGGGGGCAGGGA | 135 | 140 | 1075 | 0.22992 | 81.818 | -28.8 |
 
+Header description:
+* 'Gene' - gene symbol,
+* 'Binding' - type of binding identified,
+* '22-nt binding sequence' - 22 nucleotide sequence derived from 3'UTR of tagrget gene (last characters include binding site),
+* 'Start' - starting location of binding site in the 3'UTR sequence,
+* 'End' - terminal location of binding site in the 3'UTR sequence,
+* 'Length' - the length of 3'UTR of target gene,
+* 'Prob.' - probability of finding a binding site motif in a 3'UTR sequence,
+* 'GC content' - GC content of 22-nt binding sequence,
+* 'MFE' - minimum free energy of 22-nt binding sequence and mature miRNA duplex.
 
 ## Usage example
 
