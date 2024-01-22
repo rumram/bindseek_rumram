@@ -1,5 +1,9 @@
 # bindseek
 
+Bindseek is a workflow that enables the identification of miRNA binding sites to the sequences of the 3'UTR of mRNA target genes.
+
+The workflow can be successfully used to search for miRNA binding sites in non-model organisms.
+
 ## System requirements
 Bindseeker has been tested on Python 3.8 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
 All dependencies are included in Dockerfile (Docker installation required).
