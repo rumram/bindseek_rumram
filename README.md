@@ -1,12 +1,11 @@
 # bindseek
 
-Bindseek is a workflow that enables the identification of miRNA binding sites to the sequences of the 3'UTR of mRNA target genes.
-
-The workflow can be successfully used to search for miRNA binding sites in non-model organisms.
+Bindseek is a workflow that enables the identification of miRNA binding sites to the sequences of the 3'UTR of mRNA target genes. The workflow can be successfully used to search for miRNA binding sites in non-model organisms.
 
 ## System requirements
 Bindseeker has been tested on Python 3.8 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
 All dependencies are included in Dockerfile (Docker installation required).
+
 
 
 ## Input files
@@ -61,7 +60,8 @@ Used for a quick estimate of extreme value distribution parameters. You can choo
 The sequence should be provided as 22-characters long combination of four letters (A, C, G, U). 
 
 
-## Install
+
+## Installation and running
 
 The workflow is based on docker image.
 First, clone GitHub reposotiry:
@@ -82,6 +82,7 @@ docker run -v "/path/to/input/dir:/results" bindseek_img --genes_file gene_names
 ```
 
 The output of the workflow will be stored in given path, like: */path/to/input/dir*.
+
 
 
 ## Output
@@ -107,6 +108,7 @@ Header description:
 * 'MFE' - minimum free energy of 22-nt binding sequence and mature miRNA duplex.
 
 
+
 ## Usage example
 
 ```
@@ -114,8 +116,9 @@ python bindseek.py --genes_file gene_names_short.txt --species_file sus_names.tx
 ```
 
 
+
 ## Citation
-Using bindseek workflow please cite:
+Using bindseek workflow, please cite:
 ```
  Myszczynski, Szuszkiewicz, Krawczynski, Sikora, Romaniewicz,  Guzewska, Zabielski, Kaczmarek The complexity of the miR-26a-5p- and miR-125b-5p-induced response of the uterine epithelium associated with early pregnancy events (in press)
 ```
