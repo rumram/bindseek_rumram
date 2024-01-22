@@ -20,7 +20,7 @@ def main():
     parser.add_argument('--genes_file', type=str, required=True, help='File containing gene names')
     parser.add_argument('--species_file', type=str, required=True, help='File containing species names')
     parser.add_argument('--motif', type=str, required=True, help='Motif for binding site analysis')
-    parser.add_argument('--rnahybrid_param', type=str, required=False, help='RNAhybrid parameter')
+    parser.add_argument('--rnahybrid_param', type=str, required=True, help='RNAhybrid parameter')
     parser.add_argument('--mirna_sequence', type=str, required=True, help='miRNA sequence for RNAhybrid')
     args = parser.parse_args()
 
