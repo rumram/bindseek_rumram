@@ -4,6 +4,7 @@
 Bindseeker has been tested on Python 3.8 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
 All dependencies are included in Dockerfile (Docker installation required).
 
+
 ## Input files
 
 Five inputs are required to run the workflow: 
@@ -55,6 +56,7 @@ Used for a quick estimate of extreme value distribution parameters. You can choo
 
 The sequence should be provided as 22-characters long combination of four letters (A, C, G, U). 
 
+
 ## Install
 
 The workflow is based on docker image.
@@ -76,6 +78,7 @@ docker run -v "/path/to/input/dir:/results" bindseek_img --genes_file gene_names
 ```
 
 The output of the workflow will be stored in given path, like: */path/to/input/dir*.
+
 
 ## Output
 
@@ -99,11 +102,13 @@ Header description:
 * 'GC content' - GC content of 22-nt binding sequence,
 * 'MFE' - minimum free energy of 22-nt binding sequence and mature miRNA duplex.
 
+
 ## Usage example
 
 ```
 python bindseek.py --genes_file gene_names_short.txt --species_file sus_names.txt --motif UUCAAGUA --rnahybrid_param 3utr_human --mirna_sequence UUCAAGUAAUCCAGGAUAGGCU
 ```
+
 
 ## Citation
 Using bindseek workflow please cite:
