@@ -25,11 +25,11 @@ All dependencies are included in Dockerfile (Docker installation required).
 ## Input files
 
 Five inputs are required to run the workflow: 
-* list of genes that should be scanned through (.txt), 
-* list of species of interest (.txt), 
-* 8-characters long miRNA seed sequence, 
-* source of target sequences, 
-* 22-characters long sequence of mature miRNA.
+* list of genes that should be scanned through (.txt file), 
+* list of species of interest (.txt file), 
+* 8-characters long miRNA seed sequence (e.g. "UUCAAGUA"), 
+* source of target sequences (e.g. "3utr_human"), 
+* 22-characters long sequence of mature miRNA (e.g. "UUCAAGUAAUCCAGGAUAGGCU").
 
 ### gene list
 The gene list should contain one gene name (Gene Symbol) per line:
@@ -66,7 +66,7 @@ The seed sequence should be provided as 8-characters long combination of four le
 
 ### source of target sequences
  	
-Used for a quick estimate of extreme value distribution parameters. You can choose between nothing, 3utr_fly, 3utr_worm and 3utr_human for better equitation within these species.
+Used for a quick estimate of extreme value distribution parameters. You can choose between 3utr_fly, 3utr_worm and 3utr_human for better equitation within these species.
 
 
 ### mature miRNA sequence
