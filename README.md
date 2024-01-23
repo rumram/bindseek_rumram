@@ -2,17 +2,31 @@
 
 Bindseek is a workflow that enables the identification of miRNA binding sites to the sequences of the 3'UTR of mRNA target genes. The workflow can be successfully used to search for miRNA binding sites in non-model organisms.
 
+## Table of Contents
+- [System Requirements](#system-requirements)
+- [Input Files](#input-files)
+  - [Gene List](#gene-list)
+  - [Species List](#species-list)
+  - [miRNA Seed Sequence](#mirna-seed-sequence)
+  - [Source of Target Sequences](#source-of-target-sequences)
+  - [Mature miRNA Sequence](#mature-mirna-sequence)
+- [Installation and Running](#installation-and-running)
+- [Output](#output)
+  - [Result Table](#result-table)
+- [Usage Example](#usage-example)
+- [Citation](#citation)
+
+
 ## System requirements
 Bindseeker has been tested on Python 3.8 version. For the workflow to run, it is necessary to install: pandas, openxl and scipy Python packages, Perl and RNAhybrid.
 All dependencies are included in Dockerfile (Docker installation required).
 
 
-
 ## Input files
 
 Five inputs are required to run the workflow: 
-* list of genes that should be scanned through, 
-* list of species of interest, 
+* list of genes that should be scanned through (.txt), 
+* list of species of interest (.txt), 
 * 8-characters long miRNA seed sequence, 
 * source of target sequences, 
 * 22-characters long sequence of mature miRNA.
@@ -64,7 +78,8 @@ The sequence should be provided as 22-characters long combination of four letter
 ## Installation and running
 
 The workflow is based on docker image.
-First, clone GitHub reposotiry:
+First, clone GitHub repository:
+
 ```
 git clone https://github.com/compcore-irzbz/bindseek.git
 ```
