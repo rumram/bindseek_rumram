@@ -87,9 +87,7 @@ The output of the workflow will be stored in given path, like: */path/to/input/d
 
 ## Output
 
-The Bindseek workflow provides two output files.
-The main output is the result table, named *complete_results.tsv*, provides a detailed summary of miRNA binding sites identified within the 3'UTR sequences of target genes.
-The second output file is the *utr.fa* file which stores all the 3'UTR sequences of provided target genes, in the FASTA format. 
+The Bindseek workflow provides two output files. The main result is a results table called *complete_results.tsv*, which provides a detailed summary of the miRNA binding sites identified in the 3'UTR sequences of target genes. The second output file is the *utr.fa* file, which stores all the 3'UTR sequences of the provided target genes, in the FASTA format. 
 
 ### Result table:
 | Gene | Binding | 22-nt binding sequence | Start | End | Length | Prob. | GC content | MFE |
