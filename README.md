@@ -13,7 +13,6 @@ Bindseek is a workflow that enables the identification of miRNA binding sites to
 - [Installation and Running](#installation-and-running)
 - [Output](#output)
   - [Result Table](#result-table)
-- [Usage Example](#usage-example)
 - [Citation](#citation)
 
 
@@ -122,15 +121,6 @@ Header description:
 * 'Prob.' - probability of finding a binding site motif in a 3'UTR sequence,
 * 'GC content' - GC content of 22-nt binding sequence,
 * 'MFE' - minimum free energy of 22-nt binding sequence and mature miRNA duplex.
-
-
-
-## Usage example
-
-```
-python bindseek.py --genes_file gene_names_short.txt --species_file sus_names.txt --motif UUCAAGUA --rnahybrid_param 3utr_human --mirna_sequence UUCAAGUAAUCCAGGAUAGGCU
-```
-
 
 
 ## Citation
