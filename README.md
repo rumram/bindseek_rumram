@@ -126,7 +126,7 @@ Header description:
 ## Citation
 Using bindseek workflow, please cite:
 ```
- Myszczynski, Szuszkiewicz, Krawczynski, Sikora, Romaniewicz,  Guzewska, Zabielski, Kaczmarek The complexity of the miR-26a-5p- and miR-125b-5p-induced response of the uterine epithelium associated with early pregnancy events (in press)
+ Myszczynski, Szuszkiewicz, Krawczynski, Sikora, Romaniewicz,  Guzewska, Zabielski, Kaczmarek In-depth analysis of miRNA binding sites reveals the complex response of uterine epithelium to miR-26a-5p and miR-125b-5p during early pregnancy  (in press)
 ```
 
 As well as RNAhybrid:
