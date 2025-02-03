@@ -22,6 +22,7 @@ def main():
     parser.add_argument('--motif', type=str, required=True, help='Motif for binding site analysis')
     parser.add_argument('--rnahybrid_param', type=str, required=True, help='RNAhybrid parameter')
     parser.add_argument('--mirna_sequence', type=str, required=True, help='miRNA sequence for RNAhybrid')
+    parser.add_argument('--conserved', action='store_true', help='Include only 8mer, 7mer-m8, and 7mer_A1 in the output')  # Added --conserved argument
     args = parser.parse_args()
 
     # File paths
@@ -36,6 +37,11 @@ def main():
     print(f"Identifying binding sites within 3'UTR sequences.")
     # Run Module 2 (Python for binding site analysis)
     run_binding_site_analysis(input_file=output_file_module1, motif=reverse_complement(args.motif), output_file=output_file_module2)
+
+    if args.conserved:
+        df = pd.read_csv(output_file_module2, sep='\t')
+        df_filtered = df[df['Binding'].isin(['8mer', '7mer-m8', '7mer_A1'])]
+        df_filtered.to_csv(output_file_module2, sep='\t', index=False)
 
     print(f"Calculating MFE.")
     # Run Module 3 (Python for RNAhybrid analysis)
